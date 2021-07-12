@@ -259,7 +259,7 @@ function isValidMetadata(metadata) {
   }
 
   const latin1Buffer = Buffer.from(metadata, "latin1");
-  if (latin1Buffer.toString() !== metadata || latin1Buffer.length > 128) {
+  if (latin1Buffer.toString() !== metadata || latin1Buffer.length > 127) {
     return false;
   }
   return true;

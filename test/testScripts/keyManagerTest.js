@@ -10,7 +10,7 @@ console.log(sig);
 
 ver = KeyMan.verify(gjal.pk, "this is a msg", sig);
 console.log(ver);
-console.log(gjal.pk)
+console.log(gjal.pk);
 
 gjal.exportToFile("keystore/");
 

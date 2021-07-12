@@ -15,13 +15,13 @@ const KeyManager = require("../../../src/modules/KeyManager");
 
 /* ---------------------- Create Raw Asset Trasfer ------------------------ */
 // my local bifrost is set to Private Network:
-//AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE
+// AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE
 // this is a local network address:
-//86tS2ExvjGEpS3Ntq5vZgHirUMuee7pJELGD8GmBoUyjXpAaAXTz
+// 86tS2ExvjGEpS3Ntq5vZgHirUMuee7pJELGD8GmBoUyjXpAaAXTz
 const rawAssetParams1 = {
   "propositionType": "PublicKeyCurve25519",
   "recipients": [
-    ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE", 4, "5Jrbs2qVvXEtLpshpR7dLsSPmsgJLYU5nUiQftyoZYL3","as"],
+    ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE", 4, "5Jrbs2qVvXEtLpshpR7dLsSPmsgJLYU5nUiQftyoZYL3", "as"],
     ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE", 3, "5Jrbs2qVvXEtLpshpR7dLsSPmsgJLYU5nUiQftyoZYL3"],
     ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE", 2]
   ],
@@ -49,8 +49,8 @@ const rawAssetParams1 = {
 const rawPolyParams = {
   "propositionType": "PublicKeyCurve25519",
   "recipients": [
-    ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE",4],
-    ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE",3]
+    ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE", 4],
+    ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE", 3]
   ],
   "sender": ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE"],
   "changeAddress": "AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE",
@@ -94,17 +94,16 @@ const rawArbitParams = {
 
 
 /* ---------------------- Create Asset + Sign and Broadcast Tx ------------------------ */
-//const keyManager = BramblJS.KeyManager();
-//const keyMan = new KeyManager({networkPrefix:"private", password:"topl_the_world!"});
+// const keyManager = BramblJS.KeyManager();
+// const keyMan = new KeyManager({networkPrefix:"private", password:"topl_the_world!"});
 
 // [keyManager.pk, 4, "5Jrbs2qVvXEtLpshpR7dLsSPmsgJLYU5nUiQftyoZYL3","as"],
 // [keyManager.pk, 3, "5Jrbs2qVvXEtLpshpR7dLsSPmsgJLYU5nUiQftyoZYL3"],
 
 
-
 // Sign a prototype transaction and broadcast to a chain provider
-//const brambl = new Brambl({networkPrefix:"private", password:"topl_the_world!"});
-//const signAndBroadcastPromise = (tx) => brambl.signAndBroadcast(tx);
+// const brambl = new Brambl({networkPrefix:"private", password:"topl_the_world!"});
+// const signAndBroadcastPromise = (tx) => brambl.signAndBroadcast(tx);
 
 const rawAssetParams = {
   "propositionType": "PublicKeyCurve25519",
@@ -113,7 +112,7 @@ const rawAssetParams = {
   ],
   "assetCode": "AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE",
   "sender": ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE"],
-  "changeAddress": "AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE",//brambl.keyManager.pk
+  "changeAddress": "AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE", // brambl.keyManager.pk
   "minting": true,
   "fee": 1
 };
@@ -124,7 +123,7 @@ const rawAssetParams = {
 //   .catch((e) => console.error(e));
 
 /* ---------------------- Export Key to File ------------------------ */
-//brambl.keyManager.exportToFile();
+// brambl.keyManager.exportToFile();
 
 
 /* ---------------------- Get Block by Id ------------------------ */
@@ -141,7 +140,7 @@ const rawAssetParams = {
 /* ---------------------- Import Keyfile from BramblSc ------------------------ */
 const brsc = ".keyfiles/brambl-sc-key1.json";
 const brbi = ".keyfiles/brambl-bifrost-key1.json";
-const brjs = '.keyfiles/2021-02-08T22-40-21.175Z-618wxiUxPqjmU9Qn7YwJao8etb6Cz9XSTkvPCjiXNMME.json'
+const brjs = ".keyfiles/2021-02-08T22-40-21.175Z-618wxiUxPqjmU9Qn7YwJao8etb6Cz9XSTkvPCjiXNMME.json";
 
 // let keyManTest = new KeyManager({
 //   'keyPath': brsc,
@@ -155,10 +154,10 @@ const brjs = '.keyfiles/2021-02-08T22-40-21.175Z-618wxiUxPqjmU9Qn7YwJao8etb6Cz9X
 //   'networkPrefix': "private"
 // });
 
-let keyManTest = new KeyManager({
-  'keyPath': brjs,
-  'password': "tmp",
-  'networkPrefix': "private"
+const keyManTest = new KeyManager({
+  "keyPath": brjs,
+  "password": "tmp",
+  "networkPrefix": "private"
 });
 
 // address: AUAVaH15Rw5Yo4QyBdGwdAe4f7Nk3Sm1uoeygwJsyBViLnJeud4E
@@ -166,6 +165,6 @@ let keyManTest = new KeyManager({
 // this.#pk  618wxiUxPqjmU9Qn7YwJao8etb6Cz9XSTkvPCjiXNMME
 // this.#pk hash <Buffer 93 99 04 d5 34 71 7c 69 cf a4 e8 09 16 fc 32 d2 23 76 c8 3a 14 03 ab db dd 93 c9 76 ed 61 25 87>
 const pk = Base58.decode(keyManTest.pk);
-console.log("this.#pk hash",blake.createHash("blake2b", {digestLength: 32}).update(pk).digest());
+console.log("this.#pk hash", blake.createHash("blake2b", {digestLength: 32}).update(pk).digest());
 
-//keyManTest.exportToFile();
+// keyManTest.exportToFile();

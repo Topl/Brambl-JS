@@ -107,7 +107,7 @@ class Requests {
   /*                             Topl Api Routes                                */
   /* -------------------------------------------------------------------------- */
 
-  /* ---------------------- Create Raw Asset Trasfer ------------------------ */
+  /* ---------------------- Create Raw Asset Transfer ------------------------ */
   /**
    * Create a new asset on chain
    * @param {object} params - body parameters passed to the specified json-rpc method
@@ -123,6 +123,7 @@ class Requests {
    * @param {boolean} params.minting - Minting boolean
    * @param {number} params.fee - Fee to apply to the transaction
    * @param {string} params.consolidationAddress - Address for recipient of unspent Assets
+   * @param {string} [params.data] - Data string which can be associated with this transaction (may be empty). Must be strictly less than 128 Latin-1 encoded characters.
    * @param {string} [id="1"] - identifying number for the json-rpc request
    * @returns {object} json-rpc response from the chain
    * @memberof Requests
@@ -152,6 +153,9 @@ class Requests {
     }
     if (typeof params.minting !== "boolean") {
       throw new Error("Minting boolean value must be specified");
+    }
+    if (params.data && !utils.isValidMetadata(params.data)) {
+      throw new Error(`Invalid data: ${params.data}`);
     }
     // 0 fee value is accepted
     if (!params.fee && params.fee !== 0) {
@@ -203,7 +207,7 @@ class Requests {
       if (metadata !== undefined) {
         // advance option - metadata: up to 128 bytes
         if (!utils.isValidMetadata(metadata)) {
-          throw new Error(`Invalid metadata in Recipient: ${params.recipients[i]}`);
+          throw new Error(`Invalid metadata in Recipient: ${metadata}`);
         }
         tokenValueHolder.metadata = metadata;
       }
@@ -224,7 +228,7 @@ class Requests {
    * @param {array} params.sender - List of senders addresses
    * @param {string} params.changeAddress - Address of the change recipient
    * @param {number} params.fee - Fee to apply to the transaction
-   * @param {string} [params.data] - Data string which can be associated with this transaction (may be empty)
+   * @param {string} [params.data] - Data string which can be associated with this transaction (may be empty). This field is restricted to 127 Latin-1 encoded characters
    * @param {string} [id="1"] - identifying number for the json-rpc request
    * @returns {object} json-rpc response from the chain
    * @memberof Requests
@@ -254,6 +258,10 @@ class Requests {
     // fee must be >= 0
     if (params.fee < 0) {
       throw new Error("Invalid fee, a fee must be greater or equal to zero");
+    }
+    // must be valid data
+    if (params.data && !utils.isValidMetadata(params.data)) {
+      throw new Error(`Invalid data: ${params.data}`);
     }
     // fee must be a string
     params.fee = params.fee.toString();
@@ -290,7 +298,7 @@ class Requests {
    * @param {string} params.changeAddress - Address of the change recipient
    * @param {string} params.consolidationAddress - Address of the change recipient
    * @param {number} params.fee - Fee to apply to the transaction
-   * @param {string} [params.data] - Data string which can be associated with this transaction (may be empty)
+   * @param {string} [params.data] - Data string which can be associated with this transaction (may be empty). Must be strictly less than 128 Latin-1 encoded characters.
    * @param {string} [id="1"] - identifying number for the json-rpc request
    * @returns {object} json-rpc response from the chain
    * @memberof Requests
@@ -323,6 +331,10 @@ class Requests {
     // fee must be >= 0
     if (params.fee < 0) {
       throw new Error("Invalid fee, a fee must be greater or equal to zero");
+    }
+    // data must be valid
+    if (params.data && !utils.isValidMetadata(params.data)) {
+      throw new Error(`Invalid data: ${params.data}`);
     }
     // fee must be a string
     params.fee = params.fee.toString();

@@ -16,7 +16,7 @@ describe("Asset", () => {
     };
 
     // mock response data
-    let jsonObject = {
+    const jsonObject = {
       "jsonrpc": "2.0",
       "id": "1",
       "result": {
@@ -26,30 +26,30 @@ describe("Asset", () => {
           "timestamp": 1586470624541,
           "signatures": {},
           "newBoxes": [
-              "3gWhYUcC4FngBjJo31wMmytfNvodAQMuUcss5dkwTTpV",
-              "k7KY9K9JczYFekMkHkBozs3y1VkasTP4Tgbzg3W49Qb"
+            "3gWhYUcC4FngBjJo31wMmytfNvodAQMuUcss5dkwTTpV",
+            "k7KY9K9JczYFekMkHkBozs3y1VkasTP4Tgbzg3W49Qb"
           ],
           "data": "",
           "issuer": "6sYyiTguyQ455w2dGEaNbrwkAWAEYV1Zk6FtZMknWDKQ",
           "to": [
-              [
-                  "6sYyiTguyQ455w2dGEaNbrwkAWAEYV1Zk6FtZMknWDKQ",
-                  "90"
-              ],
-              [
-                  "22222222222222222222222222222222222222222222",
-                  "10"
-              ]
+            [
+              "6sYyiTguyQ455w2dGEaNbrwkAWAEYV1Zk6FtZMknWDKQ",
+              "90"
+            ],
+            [
+              "22222222222222222222222222222222222222222222",
+              "10"
+            ]
           ],
           "assetCode": "test",
           "from": [
-              [
-                  "6sYyiTguyQ455w2dGEaNbrwkAWAEYV1Zk6FtZMknWDKQ",
-                  "-3898410089397904521"
-              ]
+            [
+              "6sYyiTguyQ455w2dGEaNbrwkAWAEYV1Zk6FtZMknWDKQ",
+              "-3898410089397904521"
+            ]
           ],
           "boxesToRemove": [
-              "HdXwi2FhUFtkRSgogEoazFQkTQ8qhgqTDBVmN8syyNL2"
+            "HdXwi2FhUFtkRSgogEoazFQkTQ8qhgqTDBVmN8syyNL2"
           ],
           "fee": 0
         },

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src --ext .js",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "eslint src --fix && eslint test --fix",
     "test:ut": "./node_modules/mocha/bin/mocha test/ut --recursive --timeout 15000",
     "test:e2e": "./node_modules/mocha/bin/mocha test/e2e --timeout 15000",
     "test:all": "npm run lint && npm run test:ut && npm run test:e2e",

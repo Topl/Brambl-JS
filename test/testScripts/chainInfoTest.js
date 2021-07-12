@@ -9,4 +9,4 @@ brambl.Requests("https://valhalla.torus.topl.co/", process.env.VALHALLA_KEY)
       const blockHeight = x.result.height;
       console.log("Block #" + blockHeight + " forged at " + timestamp + ".\nThe latest block was created approx. " + Math.floor(timeDiff/1000) + " seconds ago.");
     })
-    .catch(e => console.error(e));
+    .catch((e) => console.error(e));

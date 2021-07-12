@@ -31,57 +31,57 @@ const BramblJS = require("../../../src/Brambl");
 // );
 
 const brambl = new BramblJS({
-    networkPrefix: "private",
-    password: "foo"
-    });
+  networkPrefix: "private",
+  password: "foo"
+});
 
-    // brambl.requests.getLatestBlock().then(res => {
-    //     const timestamp = new Date(res.result.bestBlock.header.timestamp)
-    //     const blockHeight = res.result.bestBlock.header.height
-    //     console.log('Block #' + blockHeight + ' forged ' + timestamp)
-    // })
-    const assetCode = brambl.createAssetCode("SHORT1");
-    console.log("asset code: " + assetCode)
+// brambl.requests.getLatestBlock().then(res => {
+//     const timestamp = new Date(res.result.bestBlock.header.timestamp)
+//     const blockHeight = res.result.bestBlock.header.height
+//     console.log('Block #' + blockHeight + ' forged ' + timestamp)
+// })
+const assetCode = brambl.createAssetCode("SHORT1");
+console.log("asset code: " + assetCode);
 
-    const signAndBroadcastPromise = (tx) => brambl.signAndBroadcast(tx);
-    const address = brambl.keyManager.address;
+const signAndBroadcastPromise = (tx) => brambl.signAndBroadcast(tx);
+const address = brambl.keyManager.address;
 
-    const rawAssetParams = {
-      "propositionType": "PublicKeyCurve25519",
-      "recipients": [
-        [address, "4"]
-      ],
-      "assetCode": assetCode,
-      "sender": ['AUAvJqLKc8Un3C6bC4aj8WgHZo74vamvX8Kdm6MhtdXgw51cGfix'],
-      "changeAddress": 'AUAvJqLKc8Un3C6bC4aj8WgHZo74vamvX8Kdm6MhtdXgw51cGfix',
-      "minting": true,
-      "fee": 1
-    };
+const rawAssetParams = {
+  "propositionType": "PublicKeyCurve25519",
+  "recipients": [
+    [address, "4"]
+  ],
+  "assetCode": assetCode,
+  "sender": ["AUAvJqLKc8Un3C6bC4aj8WgHZo74vamvX8Kdm6MhtdXgw51cGfix"],
+  "changeAddress": "AUAvJqLKc8Un3C6bC4aj8WgHZo74vamvX8Kdm6MhtdXgw51cGfix",
+  "minting": true,
+  "fee": 1
+};
 
-    brambl.requests.createRawAssetTransfer(rawAssetParams)
-      .then((res) => signAndBroadcastPromise(res.result))
-      .then((res) => console.log(res))
-      .catch((e) => console.error(e));
+brambl.requests.createRawAssetTransfer(rawAssetParams)
+    .then((res) => signAndBroadcastPromise(res.result))
+    .then((res) => console.log(res))
+    .catch((e) => console.error(e));
 
-    // brambl.transaction('createRawAssetTransfer', rawAssetParams)
-    // // .then((res) => signAndBroadcastPromise(res.result))
-    // .then((res) => console.log(res))
-    // .catch((e) => console.error(e));
-  
+// brambl.transaction('createRawAssetTransfer', rawAssetParams)
+// // .then((res) => signAndBroadcastPromise(res.result))
+// .then((res) => console.log(res))
+// .catch((e) => console.error(e));
 
-    // const rawAssetParams = {
-    //   "propositionType": "PublicKeyCurve25519",
-    //   "recipients": [
-    //     [keyManager2.address, 2]
-    //   ],
-    //   "assetCode": "AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE",
-    //   "sender": ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE"],
-    //   "changeAddress": "AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE",//brambl.keyManager.pk
-    //   "minting": true,
-    //   "fee": 1
-    // };
-    
-    // brambl.requests.createRawAssetTransfer(rawAssetParams)
-    //   .then((res) => signAndBroadcastPromise(res.result))
-    //   .then((res) => console.log(res))
-    //   .catch((e) => console.error(e));
+
+// const rawAssetParams = {
+//   "propositionType": "PublicKeyCurve25519",
+//   "recipients": [
+//     [keyManager2.address, 2]
+//   ],
+//   "assetCode": "AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE",
+//   "sender": ["AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE"],
+//   "changeAddress": "AUAftQsaga8DjVfVvq7DK14fm5HvGEDdVLZwexZZvoP7oWkWCLoE",//brambl.keyManager.pk
+//   "minting": true,
+//   "fee": 1
+// };
+
+// brambl.requests.createRawAssetTransfer(rawAssetParams)
+//   .then((res) => signAndBroadcastPromise(res.result))
+//   .then((res) => console.log(res))
+//   .catch((e) => console.error(e));
